@@ -13,6 +13,10 @@
   </ul>
 
   <!-- Task of The user -->
-   <!-- if selected user have value we show other vice just show empty string -->
-  <app-task [name]="selectedUser ? selectedUser.name : ''" />
+   <!-- we added the condition so the value never be undefined -->
+   @if(selectedUser){
+     <app-task [name]="selectedUser.name" />
+   }@else {
+    <p id="fallback">Select a user</p>
+   }
 </main>

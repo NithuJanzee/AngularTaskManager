@@ -15,7 +15,7 @@ export class AppComponent {
   users = DUMMY_USERS;
 
   //first we give defalult value for selected user
-  selectedUserId='u1'
+  selectedUserId?:string;
   
   get selectedUser(){
     return this.users.find((user)=> user.id === this.selectedUserId);
