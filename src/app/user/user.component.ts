@@ -1,18 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-//type aliases this is type script
-// type Users= {
-//   id:string,
-//   name:string,
-//   avatar:string
-// }
-
-// iam going to user interface
-interface Users {
-  id: string,
-  name: string,
-  avatar: string
-}
+import { Users } from './user.model';
 
 @Component({
   selector: 'app-user',
