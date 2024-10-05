@@ -15,7 +15,7 @@
   <!-- Task of The user -->
    <!-- we added the condition so the value never be undefined -->
    @if(selectedUser){
-     <app-task [name]="selectedUser.name" />
+     <app-task [UserId]="selectedUser.id" [name]="selectedUser.name" />
    }@else {
     <p id="fallback">Select a user</p>
    }

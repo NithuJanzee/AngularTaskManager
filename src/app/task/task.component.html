@@ -7,14 +7,10 @@
     </header>
 
     <ul>
-        <li>
-            <app-tasks />
-        </li>
-        <li>
-            <app-tasks />
-        </li>
-        <li>
-            <app-tasks />
-        </li>
+        @for(task of SelectedUserId; track task.id){
+            <li>
+                <app-tasks />
+            </li>
+        }
     </ul>
 </section>
