@@ -1,34 +1,22 @@
 <app-header />
 <main>
   <ul id="users">
-    <li>
-      <app-user
-       [user]="users[0]"
-        (Select)="onselecetUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[1]"
-        (Select)="onselecetUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[2]"
-        (Select)="onselecetUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-       [user]="users[3]"
-        (Select)="onselecetUser($event)"
-      />
-      <!-- this event look for some event happen -->
-    </li>
+    @for(user of users ; track user.id){
+      <li>
+        <app-user
+         [user]="user"
+          (Select)="onselecetUser($event)"
+        />
+      </li>
+    }
+   
   </ul>
 
   <!-- Task of The user -->
-   <!-- if selected user have value we show other vice just show empty string -->
-  <app-task [name]="selectedUser ? selectedUser.name : ''" />
+   <!-- we added the condition so the value never be undefined -->
+   @if(selectedUser){
+     <app-task [UserId]="selectedUser.id" [name]="selectedUser.name" />
+   }@else {
+    <p id="fallback">Select a user</p>
+   }
 </main>
