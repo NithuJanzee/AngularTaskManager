@@ -1,5 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+//type aliases this is type script
+// type Users= {
+//   id:string,
+//   name:string,
+//   avatar:string
+// }
+
+// iam going to user interface
+interface Users {
+  id: string,
+  name: string,
+  avatar: string
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -8,11 +22,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserComponent {
   //set up object
-@Input({required:true}) user!:{
-  id:string,
-  name:string,
-  avatar:string
-}
+  @Input({ required: true }) user!: Users;
   //emit the data
   @Output() Select = new EventEmitter();
 
@@ -23,7 +33,7 @@ export class UserComponent {
 
   //i only emit the user id
   //when i click event happen
-  onSelectUser() { 
-    this.Select.emit(this.user.id) 
+  onSelectUser() {
+    this.Select.emit(this.user.id)
   }
 }
