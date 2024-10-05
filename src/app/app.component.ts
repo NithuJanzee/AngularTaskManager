@@ -14,7 +14,17 @@ import { TaskComponent } from './task/task.component';
 export class AppComponent {
   users = DUMMY_USERS;
 
-  onselecetUserr(id:string){
-    console.log('the id is =' + id);
+  //first we give defalult value for selected user
+  selectedUserId='u1'
+  
+  get selectedUser(){
+    return this.users.find((user)=> user.id === this.selectedUserId);
+  }
+
+
+ // when even happen this get the id that emit from the user commponent
+  onselecetUser(id:string){
+    //when the event happen we catch the id and change the default value
+    this.selectedUserId=id;
   }
 }
