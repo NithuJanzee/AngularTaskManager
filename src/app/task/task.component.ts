@@ -1,18 +1,20 @@
-import { Component , Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TasksComponent } from "./tasks/tasks.component";
+import { NewTasksComponent } from "./new-tasks/new-tasks.component";
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [TasksComponent],
+  imports: [TasksComponent, NewTasksComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
- // we want to out put name so we look for input 
-  @Input({required:true}) name!:string
-  @Input({required:true})UserId!:string
-   Tasks = [
+  // we want to out put name so we look for input 
+  @Input({ required: true }) name!: string
+  @Input({ required: true }) UserId!: string
+  isAddingTask = false;
+  Tasks = [
     {
       id: 't1',
       userId: 'u1',
@@ -38,11 +40,15 @@ export class TaskComponent {
     },
   ]
 
-  get SelectedUserId(){
-    return this.Tasks.filter((task)=> task.userId === this.UserId)
+  get SelectedUserId() {
+    return this.Tasks.filter((task) => task.userId === this.UserId)
   }
 
-  onCompleteTask(id:string){
-    this.Tasks = this.Tasks.filter((task)=> task.id !== id) 
+  onCompleteTask(id: string) {
+    this.Tasks = this.Tasks.filter((task) => task.id !== id)
+  }
+
+  onStartAddTask() {
+    this.isAddingTask = true; 
   }
 }
