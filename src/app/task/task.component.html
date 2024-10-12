@@ -2,14 +2,14 @@
   <header>
     <h2>{{ name }}</h2>
     <menu>
-      <button>Add task</button>
+      <button >Add task</button>
     </menu>
   </header>
 
   <ul>
     @for(task of SelectedUserId; track task.id){
     <li>
-      <app-tasks [task]="task"/>
+      <app-tasks [task]="task" (complete)="onCompleteTask($event)"/>
     </li>
     }
   </ul>
