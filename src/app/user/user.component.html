@@ -1,6 +1,6 @@
 <div>
     <!-- this event trigger and emit the user id -->
-    <button (click)="onSelectUser()">
+    <button [class.active]="selected" (click)="onSelectUser()">
         <img [src]="imagePath" [alt]="user.name">
         <span>{{user.name}}</span>
     </button>
