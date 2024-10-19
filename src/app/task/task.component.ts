@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { TasksComponent } from "./tasks/tasks.component";
 import { NewTasksComponent } from "./new-tasks/new-tasks.component";
 import {type NewTaskData } from './tasks/tasks.model';
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [TasksComponent, NewTasksComponent],
+  imports: [TasksComponent, NewTasksComponent, CardComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
